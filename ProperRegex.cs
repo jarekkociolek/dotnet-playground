@@ -9,7 +9,8 @@ public static class RegexValidators
     {
         try
         {
-            var regex = new Regex(_emailPattern, RegexOptions.ExplicitCapture | RegexOptions.Compiled, TimeSpan.FromSeconds(2));
+            //RegexOptions.NonBacktracking introduced in dotnet 7
+            var regex = new Regex(_emailPattern, RegexOptions.ExplicitCapture | RegexOptions.Compiled | RegexOptions.NonBacktracking, TimeSpan.FromSeconds(2));
             return regex.IsMatch(email);
         }
         catch(RegexMatchTimeoutException)

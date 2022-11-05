@@ -4,5 +4,5 @@
 
 //REGEX GOOD PRACTICES
 //AppDomain.CurrentDomain.SetData("REGEX_DEFAULT_MATCH_TIMEOUT", TimeSpan.FromSeconds(1)); - this can be set GLOBALLY
-// var email = "john.doe@johndoe.com";
-// Console.WriteLine($"Is email: {email} valid? Result: {RegexValidators.ValidateEmail(email)}");
+var email = "john.doe@johndoe.com";
+Console.WriteLine($"Is email: {email} valid? Result: {RegexValidators.ValidateEmail(email)}");
