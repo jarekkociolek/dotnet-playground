@@ -7,7 +7,17 @@ public static class RegexValidators
     
     public static bool ValidateEmail(string email)
     {
-        var regex = new Regex(_emailPattern, RegexOptions.ExplicitCapture | RegexOptions.Compiled, TimeSpan.FromSeconds(2));
-        return regex.IsMatch(email);
+        try
+        {
+            var regex = new Regex(_emailPattern, RegexOptions.ExplicitCapture | RegexOptions.Compiled, TimeSpan.FromSeconds(2));
+            return regex.IsMatch(email);
+        }
+        catch(RegexMatchTimeoutException)
+        {
+            //Log exception and handle scenario
+            throw;
+            //Btw throw ex will reset stacktrace - use it wisely
+            //throw ex;
+        }
     }
 }
